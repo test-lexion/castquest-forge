@@ -1,5 +1,8 @@
-import { Sword, Backpack, Hammer, ScrollText, Trophy, Zap } from "lucide-react";
+import { Sword, Backpack, Hammer, ScrollText, Trophy, Zap, Wallet } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useAppKit } from '@reown/appkit/react';
+import { useAccount, useDisconnect } from 'wagmi';
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { path: "/", icon: Sword, label: "Dashboard" },
@@ -11,6 +14,9 @@ const navItems = [
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const { open } = useAppKit();
+  const { address, isConnected } = useAccount();
+  const { disconnect } = useDisconnect();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -24,9 +30,31 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 CastQuest
               </h1>
             </div>
-            <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
-              Connect Wallet
-            </button>
+            {isConnected && address ? (
+              <div className="flex items-center gap-3">
+                <div className="hidden md:flex items-center gap-2 px-3 py-2 bg-secondary rounded-lg">
+                  <Wallet className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium">
+                    {address.slice(0, 6)}...{address.slice(-4)}
+                  </span>
+                </div>
+                <Button 
+                  onClick={() => disconnect()} 
+                  variant="outline"
+                  size="sm"
+                >
+                  Disconnect
+                </Button>
+              </div>
+            ) : (
+              <Button 
+                onClick={() => open()} 
+                className="bg-primary text-primary-foreground hover:opacity-90"
+              >
+                <Wallet className="w-4 h-4 mr-2" />
+                Connect Wallet
+              </Button>
+            )}
           </div>
         </div>
       </header>
