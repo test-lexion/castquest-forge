@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gold: "hsl(var(--gold))",
+        legendary: "hsl(var(--legendary))",
+        epic: "hsl(var(--epic))",
+        rare: "hsl(var(--rare))",
+        uncommon: "hsl(var(--uncommon))",
+        common: "hsl(var(--common))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +63,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-legendary': 'var(--gradient-legendary)',
+        'gradient-epic': 'var(--gradient-epic)',
+        'gradient-rare': 'var(--gradient-rare)',
+        'gradient-uncommon': 'var(--gradient-uncommon)',
+      },
+      boxShadow: {
+        'glow': 'var(--shadow-glow)',
+        'legendary': 'var(--shadow-legendary)',
+        'epic': 'var(--shadow-epic)',
       },
       borderRadius: {
         lg: "var(--radius)",
