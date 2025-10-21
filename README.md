@@ -1,7 +1,5 @@
 
 
----
-
 # CastQuest Forge - A Farcaster-Powered On-Chain RPG
 
 CastQuest Forge is the frontend interface and smart contract suite for a persistent, on-chain social RPG designed to be played on Farcaster. Players can register their Farcaster identity, complete quests, battle monsters, craft powerful NFT-based gear, and compete on leaderboards, with all significant progress and ownership recorded on the blockchain.
